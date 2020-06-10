@@ -105,8 +105,27 @@
 					</div>
 					<!-- category end-->
 					
+					@php
+						if ( isset($product->images[0]) ) {
+							$image0 = $product->images[0]->image;
+						}
+						if ( isset($product->images[1]) ) {
+							$image1 = $product->images[1]->image;
+						}
+						if ( isset($product->images[2]) ) {
+							$image2 = $product->images[2]->image;
+						}
+						if ( isset($product->images[3]) ) {
+							$image3 = $product->images[3]->image;
+						}
+						if ( isset($product->images[4]) ) {
+							$image4 = $product->images[4]->image;
+						}
+					@endphp
+					
 					<div class="form-group">
 						<label for="image">Product Main Thumbnail</label>
+						
 						<input type="file" name="images[]" class="form-control-file">
 					</div>
 

@@ -151,22 +151,30 @@ class ProductController extends Controller
         $product->save();
 
         $slug = Str::slug( $request->title );
-        // if( count($request->images) > 0 ){
-        //     foreach ( $request->images as $image ) {
-        //         $image_name = $slug . time() . uniqid() . '.' . $image->getClientOriginalExtension();
+        if( isset($request->images) && count($request->images) > 0 ){
+            // delete old images 
+            foreach ($product->images as $del_image) {
+                if( File::exists( 'images/products/'.$del_image->image) ){
+                    File::delete( 'images/products/'.$del_image->image);
+                }
+                $del_image->delete();
+            }
 
-        //         $location = public_path( 'images/products/' . $image_name );
+            foreach ( $request->images as $image ) {
+                $image_name = $slug . time() . uniqid() . '.' . $image->getClientOriginalExtension();
 
-        //         Image::make( $image )->save( $location );
+                $location = public_path( 'images/products/' . $image_name );
 
-        //         $p_image = new ProductImage;
+                Image::make( $image )->save( $location );
 
-        //         $p_image->product_id = $product->id;
-        //         $p_image->image = $image_name;
+                $p_image = new ProductImage;
 
-        //         $p_image->save();
-        //     }
-        // }
+                $p_image->product_id = $product->id;
+                $p_image->image = $image_name;
+
+                $p_image->save();
+            }
+        }
 
         session()->flash( 'Success' , 'Product Updated Successfully ');
         return redirect()->route('manageProduct');

@@ -6,7 +6,6 @@
 					<div class="topbar__item topbar__item--link"><a class="topbar-link" href="contact-us.html">Contacts</a></div>
 					<div class="topbar__item topbar__item--link"><a class="topbar-link" href="#">Store Location</a></div>
 					<div class="topbar__item topbar__item--link"><a class="topbar-link" href="track-order.html">Track Order</a></div>
-					<div class="topbar__item topbar__item--link"><a class="topbar-link" href="blog-classic.html">Blog</a></div>
 					<div class="topbar__spring"></div>
 					<div class="topbar__item">
 						<div class="topbar-dropdown">
@@ -20,23 +19,6 @@
 									<li><a href="{{ route('register') }}">Register</a></li>
 									<li><a href="#">Orders</a></li>
 									<li><a href="#">Addresses</a></li>
-								</ul>
-								<!-- .menu / end -->
-							</div>
-						</div>
-					</div>
-					<div class="topbar__item">
-						<div class="topbar-dropdown">
-							<button class="topbar-dropdown__btn" type="button">
-								Currency: <span class="topbar__item-value">USD</span> <svg width="7px" height="5px"><use xlink:href="images/sprite.svg#arrow-rounded-down-7x5"></use></svg>
-							</button>
-							<div class="topbar-dropdown__body">
-								<!-- .menu -->
-								<ul class="menu menu--layout--topbar">
-									<li><a href="#">€ Euro</a></li>
-									<li><a href="#">£ Pound Sterling</a></li>
-									<li><a href="#">$ US Dollar</a></li>
-									<li><a href="#">₽ Russian Ruble</a></li>
 								</ul>
 								<!-- .menu / end -->
 							</div>
